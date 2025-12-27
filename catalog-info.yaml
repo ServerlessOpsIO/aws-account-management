@@ -2,10 +2,10 @@
 apiVersion: backstage.io/v1alpha1
 kind: Component
 metadata:
-  name: aws-org-management
-  description: AWS Organization Management
+  name: aws-account-management
+  description: AWS Organization Account Management
   annotations:
-    github.com/project-slug: ServerlessOpsIO/aws-org-management
+    github.com/project-slug: ServerlessOpsIO/aws-account-management
 spec:
   type: cloud-config
   lifecycle: production

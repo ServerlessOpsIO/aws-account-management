@@ -17,11 +17,6 @@ jobs:
       - name: Setup job workspace
         uses: ServerlessOpsIO/gha-setup-workspace@v1
 
-      - name: Setup Python environment
-        uses: ServerlessOpsIO/gha-setup-python@v1
-        with:
-          python_version: 3.12
-
       - name: Assume AWS Credentials
         uses: ServerlessOpsIO/gha-assume-aws-credentials@v1
         with:
@@ -84,11 +79,6 @@ jobs:
         with:
           checkout_artifact: true
 
-      - name: Setup Python enviornment
-        uses: ServerlessOpsIO/gha-setup-python@v1
-        with:
-          python_version: 3.12
-
       - name: Assume AWS Credentials
         uses: ServerlessOpsIO/gha-assume-aws-credentials@v1
         with:
@@ -103,6 +93,7 @@ jobs:
           aws_account_id: ${{ secrets.AWS_MANAGEMENT_ACCOUNT_ID }}
           stack_name: "${{ env.GITHUB_REPOSITORY_NAME_PART_SLUG_URL }}-${{ env.GITHUB_EVENT_REF_SLUG_URL }}"
           env_json: ${{ toJson(env) }}
+          vars_json: ${{ toJson(vars) }}
           secrets_json: ${{ toJson(secrets) }}
 
   deploy_stacksets:
@@ -118,11 +109,6 @@ jobs:
         uses: ServerlessOpsIO/gha-setup-workspace@v1
         with:
           checkout_artifact: true
-
-      - name: Setup Python environment
-        uses: ServerlessOpsIO/gha-setup-python@v1
-        with:
-          python_version: 3.12
 
       - name: Assume AWS Credentials
         uses: ServerlessOpsIO/gha-assume-aws-credentials@v1
@@ -140,4 +126,5 @@ jobs:
           template_file: packaged-stacksets-template.yaml
           cfn_capabilities: CAPABILITY_NAMED_IAM,CAPABILITY_AUTO_EXPAND
           env_json: ${{ toJson(env) }}
+          vars_json: ${{ toJson(vars) }}
           secrets_json: ${{ toJson(secrets) }}

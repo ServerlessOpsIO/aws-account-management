@@ -1,4 +1,4 @@
-# aws-org-management
+# aws-account-management
 
 AWS organization account management
 

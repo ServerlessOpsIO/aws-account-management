@@ -6,7 +6,6 @@ Parameters:
   TargetOuIds:
     Type: String
     Description: List of OUs
-    Default: r-c834
 
 Resources:
   ApigLoggingStack:
